@@ -1,38 +1,37 @@
 html, body {
 	padding: 0;
 	margin: 0;
-	background: #525c66;
+	background: rgb(70, 79, 88);
 	color: #fafaff;
 	font-family: sans-serif;
 }
 
 body {
 	display: grid;
-	grid-template-columns: 1fr 50% 1fr;
-	grid-template-columns: 1fr 90ch 1fr;
-	line-height: 1.5em;
 
+	grid-template-rows: auto 1fr auto;
 	min-height: 100vh;
-	grid-auto-rows: auto;
-	grid-auto-flow: dense;
+	line-height: 1.5em;
 }
 
-body > * {
-		align-self: start;
-		grid-column: 2;
-	}
+main {
+	background: #525c66;
+	display: grid;
+	grid-template-columns: 1fr 50% 1fr;
+	grid-template-columns: 1fr 90ch 1fr;
+}
 
-body header, body footer, body .fullWidth {
-		grid-column: 1/4;
-		grid-column: 1/-1;
-	}
-
-body .left {
+main .left {
 		grid-column: 1;
 	}
 
-body .right {
+main .right {
 		grid-column: 3;
+	}
+
+main > * {
+		align-self: start;
+		grid-column: 2;
 	}
 
 header {
@@ -160,26 +159,21 @@ footer a {
 	}
 
 @media screen and (orientation: portrait) {
-	body {
+	main {
 		grid-template-columns: 1fr 92% 1fr;
 	}
-
-		body footer, body .left, body .right {
-			grid-column: 2;
-		}
 
 	header {
 		text-align: center;
 	}
 
 	footer {
-		padding: 0;
 		margin-top: 2rem;
 		grid-template-columns: 1fr;
 	}
 
 		footer div {
-			margin: 1rem 0;
+			margin: 0.3rem 0;
 		}
 
 	section.apps .applist {
